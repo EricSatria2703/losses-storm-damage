@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weather Event Data Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.5.0/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        pre {
+            background-color: #f7f7f7;
+            padding: 8px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body class="bg-neutral-200 text-black">
+    <div class="flex justify-center">
+        <div class="container w-1/2 mt-5 mb-5 bg-white rounded p-5">
+            <h1 class="text-4xl mb-5">Weather Event Data Documentation</h1>
+            <div class="mb-4">
+                <h2 class="text-l font-bold">State</h2>
+                <p>The state name where the event occurred (no State ID’s are included here; State Name is spelled out
+                    in
+                    ALL
+                    CAPS).</p>
+                <pre>Example: GEORGIA</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">State FIPS</h2>
+                <p>A unique number (State Federal Information Processing Standard) assigned to the county by the
+                    National
+                    Institute for Standards and Technology (NIST).</p>
+                <pre>Example: 45</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">County FIPS</h2>
+                <p>The county FIPS number is a unique number assigned to the county by the National Institute for
+                    Standards
+                    and
+                    Technology (NIST) or NWS Forecast Zone Number.</p>
+                <pre>Example: 245</pre>
+            </div>
+
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">CZ FIPS</h2>
+                <p>The county FIPS number is a unique number assigned to the county by the National Institute
+                    for Standards and Technology (NIST) or NWS Forecast Zone Number (See addendum)</p>
+                <pre>Example: 245, 003, 155</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Source</h2>
+                <p>The source reporting the weather event (can be any entry; isn’t restricted in what’s allowed).</p>
+                <pre>Example: Public, Newspaper, Law Enforcement, etc.</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Magnitude</h2>
+                <p>The measured extent of the magnitude type ~ only used for wind speeds (in knots) and hail size (in
+                    inches
+                    to
+                    the hundredth).</p>
+                <pre>Example: 0.75, 60, 2.75</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Magnitude Type</h2>
+                <p>The type of magnitude measurement (wind gust, sustained wind, etc.).</p>
+                <pre>Example: EG, MS, MG, ES</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Range</h2>
+                <p>Distance (to the tenth of a mile) to the geographical center or primary post office of a particular
+                    village/city, providing that the reference point is documented in the Storm Data software location
+                    database
+                    table.</p>
+                <pre>Example: 0.59, 4.84</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Azimuth</h2>
+                <p>16-point compass direction from the reference point documented in the Storm Data software location
+                    database
+                    table of > 130,000 locations.</p>
+                <pre>Example: ENE, WSW</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Location</h2>
+                <p>The name of city, town, or village from which the range is calculated and the azimuth is determined.
+                </p>
+                <pre>Example: ASHEVILLE, SAN DIMAS</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Latitude</h2>
+                <p>The latitude where the event occurred (Signed negative (-) if it’s in the southern hemisphere).</p>
+                <pre>Example: 31.25, 32.76</pre>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="text-l font-bold">Longitude</h2>
+                <p>The longitude where the event occurred (Signed negative (-) if it’s in the western hemisphere).</p>
+                <pre>Example: -93.97, -94.52</pre>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

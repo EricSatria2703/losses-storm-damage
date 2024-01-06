@@ -59,23 +59,35 @@ def predictForm():
 
     X = np.array([
         [
-            int(state),
-            int(state_fips_code),
-            int(cz_fips_code),
-            int(source),
-            int(magnitude),
-            int(magnitude_type),
-            int(event_range),
-            int(event_azimuth),
-            int(reference_location),
-            int(event_latitude),
-            int(event_longitude),
+            float(state),
+            float(state_fips_code),
+            float(cz_fips_code),
+            float(source),
+            float(magnitude),
+            float(magnitude_type),
+            float(event_range),
+            float(event_azimuth),
+            float(reference_location),
+            float(event_latitude),
+            float(event_longitude),
         ]
     ])
 
 
     loaded_model = pickle.load(open('model/dmgPred.pkl', "rb"))
     pred = loaded_model.predict(X)
-    print(type(X))
 
-    return redirect(url_for('index', pred=pred))
+    predConv = {
+        "ringan": "Minor",
+        "sedang": "Moderate",
+        "parah": "Severe",
+        "parah banget": "Critical",
+    }
+
+    return redirect(url_for('index', pred=predConv[pred]))
+
+
+
+@app.route("/docs")
+def docs():
+    return render_template('docs.html')
