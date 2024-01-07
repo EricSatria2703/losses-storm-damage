@@ -13,7 +13,7 @@ sourceCategory = json.load(jsonData)
 
 mg_typeCategory = {'EG': 0, 'MG': 1}
 
-jsonData = open('json/mg-type.json', 'r')
+jsonData = open('json/azimuth.json', 'r')
 event_azimuthCategory = json.load(jsonData)
 
 jsonData = open('json/reference-location.json', 'r')
