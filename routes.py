@@ -77,14 +77,7 @@ def predictForm():
     loaded_model = pickle.load(open('model/dmgPred.pkl', "rb"))
     pred = loaded_model.predict(X)
 
-    predConv = {
-        "ringan": "Minor",
-        "sedang": "Moderate",
-        "parah": "Severe",
-        "parah banget": "Critical",
-    }
-
-    return redirect(url_for('index', pred=predConv[pred]))
+    return redirect(url_for('index', pred=pred))
 
 
 

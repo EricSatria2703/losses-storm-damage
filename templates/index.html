@@ -22,11 +22,13 @@
         <a class="text-sky-600" href="/docs">Click here to see Documentation</a>
       </section>
 
+      {% if pred %}
       <section id="result" class="notif p-5 rounded shadown-lg bg-green-400 text-center text-2xl mt-5">
         <div class="">
           <h2>Prediction Result <span class=" font-bold">{{ pred }}</span></h2>
         </div>
       </section>
+      {% endif %}
 
       <section id=" inputForm">
         <div class="container flex justify-center mt-5 mb-5 rounded">
