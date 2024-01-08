@@ -13,5 +13,5 @@ Install requirements library
 Run service
 
 ```bash
-  flask --app app
+  flask --app app run
 ```
