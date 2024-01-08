@@ -12,37 +12,37 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 
-<body class="bg-neutral-200">
+<body class="bg-[url('{{ url_for('static', filename='img/bg.jpg') }}')] ">
   <div class="flex justify-center">
     <div class="container lg:w-1/2 w-full mt-5">
-      <section id="notif" class="notif p-5 rounded shadown-lg bg-white text-center ">
+      <section id="notif" class="notif p-5 rounded shadown-lg bg-white/30 backdrop-blur-xl text-center ">
         <div class="">
-          <h2 class="text-3xl font-bold">Prediction Types of Storm Damage</h2>
+          <h2 class="text-3xl font-bold text-white">Prediction Types of Storm Damage</h2>
         </div>
-        <a class="text-sky-600" href="/docs">Click here to see Documentation</a>
+        <a class="text-sky-200" href="/docs">Click here to see Documentation</a>
       </section>
 
       {% if pred %}
       <section id="result" class="notif p-5 rounded shadown-lg bg-green-400 text-center text-2xl mt-5">
         <div class="">
-          <h2>Prediction Result <span class=" font-bold">{{ pred }}</span></h2>
+          <h2>Prediction Result <span class=" font-bold text-white">{{ pred }}</span></h2>
         </div>
       </section>
       {% endif %}
 
       <section id=" inputForm">
         <div class="container flex justify-center mt-5 mb-5 rounded">
-          <form action="{{ url_for('predictForm') }}" method="post" class="p-5 bg-white w-full">
+          <form action="{{ url_for('predictForm') }}" method="post" class="p-5 bg-white/30 backdrop-blur-xl w-full">
             <div class="grid grid-cols-2 gap-4">
               <div class="mb-3">
-                <div class="tooltip tooltip-right" data-tip="he state name where the event occurred (no State ID’s are included here; State Name is spelled out
+                <div class="tooltip tooltip-right" data-tip="The state name where the event occurred (no State ID’s are included here; State Name is spelled out
                 in
                 ALL
                 CAPS).
                 Example: GEORGIA">
-                  <label for="state" class="text-l font-bold">State</label>
+                  <label for="state" class="text-l font-bold text-white">State</label>
                 </div>
-                <p class="label-text-alt">Description of State</p>
+                <p class="label-text-alt" style="color: white;">Description of State</p>
                 <select class="input input-bordered w-full" name="state" id="state">
                   {% for key, value in stateCategory.items() %}
                   <option value="{{ value }}">{{ key }}</option>
@@ -54,20 +54,20 @@
                 National
                 Institute for Standards and Technology (NIST).
                 Example: 45">
-                  <label for="state_fips_code" class="text-l font-bold">State FIPS Code</label>
+                  <label for="state_fips_code" class="text-l font-bold text-white">State FIPS Code</label>
                 </div>
-                <p class=" label-text-alt">Description of State FIPS Code</p>
-                <input required type="number" step=0.01 class="input input-bordered w-full " id="state_fips_code"
-                  name="state_fips_code" placeholder="" />
+                <p class=" label-text-alt" style="color: white;">Description of State FIPS Code</p>
+                <input required type="number" step=0.01 class="input input-bordered w-full bg-gray-500"
+                  id="state_fips_code" name="state_fips_code" placeholder="" />
               </div>
             </div>
 
             <div class="mb-3">
               <div class="tooltip tooltip-right" data-tip="The county FIPS number is a unique number assigned to the county by the National Institute for Standards and Technology (NIST) or NWS Forecast Zone Number (See addendum)
               Example: 245, 003, 155">
-                <label for="cz_fips_code" class="text-l font-bold">CZ FIPS Code</label>
+                <label for="cz_fips_code" class="text-l font-bold text-white">CZ FIPS Code</label>
               </div>
-              <p class="label-text-alt">Description of CZ FIPS Code</p>
+              <p class="label-text-alt" style="color: white;">Description of CZ FIPS Code</p>
               <input required type="number" step=0.01 class="input input-bordered w-full " id="cz_fips_code"
                 name="cz_fips_code" placeholder="" />
             </div>
@@ -75,9 +75,9 @@
             <div class="mb-3">
               <div class="tooltip tooltip-right" data-tip="The source reporting the weather event (can be any entry; isn’t restricted in what’s allowed).
               Example: Public, Newspaper, Law Enforcement, etc.">
-                <label for="source" class="text-l font-bold">Source</label>
+                <label for="source" class="text-l font-bold text-white">Source</label>
               </div>
-              <p class="label-text-alt">Description of Source</p>
+              <p class="label-text-alt" style="color: white;">Description of Source</p>
               <select class="input input-bordered w-full " name="source" id="source">
                 {% for key, value in sourceCategory.items() %}
                 <option value="{{ value }}">{{ key }}</option>
@@ -88,9 +88,9 @@
               <div class="mb-3">
                 <div class="tooltip tooltip-right" data-tip="The measured extent of the magnitude type ~ only used for wind speeds (in knots) and hail size (in inches to the hundredth).
                 Example: 0.75, 60, 2.75">
-                  <label for="magnitude" class="text-l font-bold">Magnitude</label>
+                  <label for="magnitude" class="text-l font-bold text-white">Magnitude</label>
                 </div>
-                <p class="label-text-alt">Description of Magnitude</p>
+                <p class="label-text-alt" style="color: white;">Description of Magnitude</p>
                 <input required type="number" step=0.01 class="input input-bordered w-full " id="magnitude"
                   name="magnitude" placeholder="" />
               </div>
@@ -99,9 +99,9 @@
                 <div class="mb-3">
                   <div class="tooltip tooltip-right" data-tip="The type of magnitude measurement (wind gust, sustained wind, etc.).
                   Example: EG, MS, MG, ES">
-                    <label for="magnitude_type" class="text-l font-bold">Magnitude Type</label>
+                    <label for="magnitude_type" class="text-l font-bold text-white">Magnitude Type</label>
                   </div>
-                  <p class="label-text-alt">Description of Magnitude Type</p>
+                  <p class="label-text-alt" style="color: white;">Description of Magnitude Type</p>
                   <!-- <input required type="number" step=0.01 class="input input-bordered w-full " id="magnitude_type" name="magnitude_type" placeholder="" /> -->
                   <select class="input input-bordered w-full " name="magnitude_type" id="magnitude_type">
                     {% for key, value in mg_typeCategory.items() %}
@@ -115,9 +115,9 @@
               <div class="mb-3">
                 <div class="tooltip tooltip-right" data-tip="Distance (to the tenth of a mile) to the geographical center or primary post office of a particular village/city, providing that the reference point is documented in the Storm Data software location database table.
                   Example: 0.59, 4.84">
-                  <label for="event_range" class="text-l font-bold">Event Range</label>
+                  <label for="event_range" class="text-l font-bold text-white">Event Range</label>
                 </div>
-                <p class="label-text-alt">Description of Event Range</p>
+                <p class="label-text-alt" style="color: white;">Description of Event Range</p>
                 <input required type="number" step=0.01 class="input input-bordered w-full " id="event_range"
                   name="event_range" placeholder="" />
               </div>
@@ -126,9 +126,9 @@
                 <div class="tooltip tooltip-right" data-tip="Azimuth
                   16-point compass direction from the reference point documented in the Storm Data software location database table of > 130,000 locations.
                   Example: ENE, WSW">
-                  <label for="event_azimuth" class="text-l font-bold">Event Azimuth</label>
+                  <label for="event_azimuth" class="text-l font-bold text-white">Event Azimuth</label>
                 </div>
-                <p class="label-text-alt">Description of Event Azimuth</p>
+                <p class="label-text-alt" style="color: white;">Description of Event Azimuth</p>
                 <!-- <input required type="number" step=0.01 class="input input-bordered w-full " id="event_azimuth" name="event_azimuth" placeholder="" /> -->
                 <select class="input input-bordered w-full " name="event_azimuth" id="event_azimuth">
                   {% for key, value in event_azimuthCategory.items() %}
@@ -141,9 +141,9 @@
             <div class="mb-3">
               <div class="tooltip tooltip-right" data-tip="The name of city, town, or village from which the range is calculated and the azimuth is determined.
                 Example: ASHEVILLE, SAN DIMAS">
-                <label for="reference_location" class="text-l font-bold">Reference Location</label>
+                <label for="reference_location" class="text-l font-bold text-white">Reference Location</label>
               </div>
-              <p class="label-text-alt">Description of Reference Location</p>
+              <p class="label-text-alt" style="color: white;">Description of Reference Location</p>
               <!-- <input required type="number" step=0.01 class="input input-bordered w-full " id="reference_location" name="reference_location" placeholder="" /> -->
               <select class="input input-bordered w-full " name="reference_location" id="reference_location">
                 {% for key, value in reference_locationCategory.items() %}
@@ -155,9 +155,9 @@
               <div class="mb-3">
                 <div class="tooltip tooltip-right" data-tip="The latitude where the event occurred (Signed negative (-) if it’s in the southern hemisphere).
                   Example: 31.25, 32.76">
-                  <label for="event_latitude" class="text-l font-bold">Event Latitude</label>
+                  <label for="event_latitude" class="text-l font-bold text-white">Event Latitude</label>
                 </div>
-                <p class="label-text-alt">Description of Event Latitude</p>
+                <p class="label-text-alt" style="color: white;">Description of Event Latitude</p>
                 <input required type="number" step=0.01 class="input input-bordered w-full " id="event_latitude"
                   name="event_latitude" placeholder="" />
               </div>
@@ -165,9 +165,9 @@
               <div class="mb-3">
                 <div class="tooltip tooltip-right" data-tip="The longitude where the event occurred (Signed negative (-) if it’s in the western hemisphere).
                   Example: -93.97, -94.52">
-                  <label for="event_longitude" class="text-l font-bold">Event Longitude</label>
+                  <label for="event_longitude" class="text-l font-bold text-white">Event Longitude</label>
                 </div>
-                <p class="label-text-alt">Description of Event Longitude</p>
+                <p class="label-text-alt" style="color: white;">Description of Event Longitude</p>
                 <input required type="number" step=0.01 class="input input-bordered w-full " id="event_longitude"
                   name="event_longitude" placeholder="" />
               </div>
